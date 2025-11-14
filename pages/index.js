@@ -1,4 +1,4 @@
 function Home() {
-    return <h1>De boa nada, nós nem almoçou, Hihi</h1>;
+    return <h1>De boa nada, nós nem almoçou!</h1>;
 }
 export default Home; 
