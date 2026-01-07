@@ -1,4 +1,7 @@
 function Home() {
-    return <h1>De boa nada, nós nem almoçou!</h1>;
+  return <h1>De boa nada, nós nem almoçou!</h1>;
 }
-export default Home; 
+function teste() {
+  return <h2>Teste</h2>;
+}
+export default Home;
