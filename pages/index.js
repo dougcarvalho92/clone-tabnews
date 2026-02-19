@@ -1,7 +1,20 @@
-function Home() {
-  return <h1>De boa nada, nós nem almoçou!</h1>;
+export default function Home() {
+  return (
+    <div style={styles.container}>
+      <h1>Em Construção</h1>
+      <p>Esta página está sendo desenvolvida. Volte em breve!</p>
+    </div>
+  );
 }
-function teste() {
-  return <h2>Teste</h2>;
-}
-export default Home;
+
+const styles = {
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    minHeight: '100vh',
+    backgroundColor: '#f5f5f5',
+    fontFamily: 'Arial, sans-serif',
+  },
+};
