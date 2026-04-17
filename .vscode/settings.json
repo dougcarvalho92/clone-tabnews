@@ -3,5 +3,18 @@
   "cSpell.words": [
     "tabnews",
     "tabsnews"
+  ],
+  "sqltools.connections": [
+    {
+      "ssh": "Disabled",
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "tabnews",
+      "database": "postgres",
+      "username": "postgres",
+      "password": "local_password"
+    }
   ]
 }
