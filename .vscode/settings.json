@@ -1,9 +1,6 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "cSpell.words": [
-    "tabnews",
-    "tabsnews"
-  ],
+  "cSpell.words": ["tabnews", "tabsnews"],
   "sqltools.connections": [
     {
       "ssh": "Disabled",

@@ -15,8 +15,9 @@ async function status(request, response) {
     values: [dbName],
   });
 
-  const dbOpenedConnectionResultReserved = parseInt(dbOpenedConnectionResult.rows[0].count);
-
+  const dbOpenedConnectionResultReserved = parseInt(
+    dbOpenedConnectionResult.rows[0].count,
+  );
 
   response.status(200).json({
     updated_at: updatedAt,
@@ -25,10 +26,9 @@ async function status(request, response) {
         version: dbOpenedVersionResult.rows[0].server_version,
         max_connections: parseInt(databaseMaxConnectionsValues),
         opened_connections: dbOpenedConnectionResultReserved,
-      }
-    }
+      },
+    },
   });
-
 }
 
 export default status;
