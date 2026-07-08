@@ -10,7 +10,7 @@
       "driver": "PostgreSQL",
       "name": "tabnews",
       "database": "postgres",
-      "username": "postgres",
+      "username": "local_user",
       "password": "local_password"
     }
   ]
