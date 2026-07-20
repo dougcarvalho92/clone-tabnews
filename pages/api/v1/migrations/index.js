@@ -8,7 +8,7 @@ export default async function migrations(request, response) {
   const migrationsOptions = {
     dbClient,
     databaseUrl: process.env.DATABASE_URL,
-    dir: join(process.cwd(), "infra", "migrations"),
+    dir: join("infra", "migrations"),
     direction: "up",
     verbose: true,
     migrationsTable: "pgmigrations",
