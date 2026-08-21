@@ -1,4 +1,5 @@
 import { runner as migrationRunner } from "node-pg-migrate";
+import { existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import database from "infra/database";
 
@@ -22,7 +23,15 @@ export default async function migrations(request, response) {
       migrationsTable: "pgmigrations",
       dryRun: true,
     };
+    const migrationsDir = join(process.cwd(), "infra", "migrations");
 
+    console.log("CWD:", process.cwd());
+    console.log("Migrations dir:", migrationsDir);
+    console.log("Exists:", existsSync(migrationsDir));
+
+    if (existsSync(migrationsDir)) {
+      console.log("Files:", readdirSync(migrationsDir));
+    }
     if (request.method === "POST") {
       const migratedMigrations = await migrationRunner({
         ...migrationsOptions,

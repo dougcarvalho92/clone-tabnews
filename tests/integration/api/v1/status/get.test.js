@@ -3,7 +3,7 @@ test("GET to /api/v1/status should return 200", async () => {
   expect(response.status).toBe(200);
   const body = await response.json();
 
-  expect(body.dependencies.database.version).toBe("16.13");
+  expect(body.dependencies.database.version).toBe("16.14");
   expect(body.dependencies.database.max_connections).toEqual(100);
   expect(body.dependencies.database.opened_connections).toEqual(1);
 });
