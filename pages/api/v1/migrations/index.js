@@ -14,11 +14,13 @@ export default async function migrations(request, response) {
 
   try {
     dbClient = await database.getNewClient();
+    const migrationsDir = join(process.cwd(), "infra", "migrations");
 
+    console.log("MIGRATIONS DIR:", migrationsDir);
     const defaultMigrationOptions = {
       dbClient: dbClient,
       dryRun: true,
-      dir: join("infra", "migrations"),
+      dir: migrationsDir,
       direction: "up",
       verbose: true,
       migrationsTable: "pgmigrations",
