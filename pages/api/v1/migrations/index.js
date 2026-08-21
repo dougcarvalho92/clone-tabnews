@@ -4,7 +4,9 @@ import { join } from "node:path";
 import database from "infra/database";
 
 export default async function migrations(request, response) {
-  if (!isMethodAllowed(request.method)) {
+  const allowedMethods = ["GET", "POST"];
+
+  if (!allowedMethods.includes(request.method)) {
     return response.status(405).json({
       error: `Method ${request.method} Not Allowed`,
     });
@@ -55,9 +57,4 @@ export default async function migrations(request, response) {
   } finally {
     await dbClient.end();
   }
-}
-
-function isMethodAllowed(method) {
-  const allowedMethods = ["GET", "POST"];
-  return allowedMethods.includes(method);
 }
