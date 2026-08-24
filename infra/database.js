@@ -41,6 +41,7 @@ export default {
 
 function getSSlValues() {
   if (process.env.POSTGRES_CA) {
+    //CERTIFICADO DO DIGITAL OCEAN
     return {
       ca: process.env.POSTGRES_CA,
     };
