@@ -16,14 +16,6 @@ export default async function migrations(request, response) {
   try {
     const migrationsDirectory = join(process.cwd(), "infra", "migrations");
 
-    console.log("CWD:", process.cwd());
-    console.log("MIGRATIONS DIR:", migrationsDirectory);
-    console.log("MIGRATIONS EXISTS:", existsSync(migrationsDirectory));
-
-    if (existsSync(migrationsDirectory)) {
-      console.log("MIGRATIONS FILES:", readdirSync(migrationsDirectory));
-    }
-
     dbClient = await database.getNewClient();
 
     const defaultMigrationOptions = {
