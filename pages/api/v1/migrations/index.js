@@ -1,4 +1,5 @@
 import migrationRunner from "node-pg-migrate";
+import { existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import database from "infra/database";
 
@@ -13,12 +14,22 @@ export default async function migrations(request, response) {
   let dbClient;
 
   try {
+    const migrationsDirectory = join(process.cwd(), "infra", "migrations");
+
+    console.log("CWD:", process.cwd());
+    console.log("MIGRATIONS DIR:", migrationsDirectory);
+    console.log("MIGRATIONS EXISTS:", existsSync(migrationsDirectory));
+
+    if (existsSync(migrationsDirectory)) {
+      console.log("MIGRATIONS FILES:", readdirSync(migrationsDirectory));
+    }
+
     dbClient = await database.getNewClient();
 
     const defaultMigrationOptions = {
       dbClient: dbClient,
       dryRun: true,
-      dir: join("infra", "migrations"),
+      dir: migrationsDirectory,
       direction: "up",
       verbose: true,
       migrationsTable: "pgmigrations",
