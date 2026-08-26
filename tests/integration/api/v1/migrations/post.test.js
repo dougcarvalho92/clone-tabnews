@@ -1,6 +1,8 @@
 import database from "infra/database";
+import orquestrador from "../orquestrador.js";
 
 beforeAll(async () => {
+  await orquestrador.waitForAllServices();
   await cleanDatabase();
 });
 
