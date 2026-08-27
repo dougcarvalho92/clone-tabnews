@@ -34,11 +34,6 @@ async function getNewClient() {
   }
 }
 
-export default {
-  query,
-  getNewClient,
-};
-
 function getSSlValues() {
   if (process.env.POSTGRES_CA) {
     //CERTIFICADO DO DIGITAL OCEAN
@@ -48,3 +43,10 @@ function getSSlValues() {
   }
   return process.env.NODE_ENV === "production" ? true : false;
 }
+
+const database = {
+  query,
+  getNewClient,
+};
+
+export default database;
