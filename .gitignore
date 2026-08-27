@@ -5,4 +5,4 @@ node_modules/
 # Next.js / build
 .next/
 .env
-.env.local
+#.env.local
