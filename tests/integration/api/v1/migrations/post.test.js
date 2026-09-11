@@ -3,12 +3,9 @@ import orquestrador from "../orquestrador.js";
 
 beforeAll(async () => {
   await orquestrador.waitForAllServices();
-  await cleanDatabase();
+  await orquestrador.clearDatabase();
 });
 
-async function cleanDatabase() {
-  await database.query("drop schema public cascade; create schema public;");
-}
 describe("POST /api/v1/migrations", () => {
   describe("Anonymous user", () => {
     describe("Running pending migrations", () => {
