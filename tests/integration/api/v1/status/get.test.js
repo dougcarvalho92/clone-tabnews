@@ -3,13 +3,16 @@ import orquestrador from "../orquestrador.js";
 beforeAll(async () => {
   await orquestrador.waitForAllServices();
 });
+describe("GET /api/v1/status", () => {
+  describe("Anonymous user", () => {
+    test("Retrieving current system status", async () => {
+      const response = await fetch("http://localhost:3000/api/v1/status");
+      expect(response.status).toBe(200);
+      const body = await response.json();
 
-test("GET to /api/v1/status should return 200", async () => {
-  const response = await fetch("http://localhost:3000/api/v1/status");
-  expect(response.status).toBe(200);
-  const body = await response.json();
-
-  expect(body.dependencies.database.version).toBe("16.14");
-  expect(body.dependencies.database.max_connections).toEqual(100);
-  expect(body.dependencies.database.opened_connections).toEqual(1);
+      expect(body.dependencies.database.version).toBe("16.14");
+      expect(body.dependencies.database.max_connections).toEqual(100);
+      expect(body.dependencies.database.opened_connections).toEqual(1);
+    });
+  });
 });

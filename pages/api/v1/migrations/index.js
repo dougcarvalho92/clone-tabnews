@@ -1,5 +1,4 @@
 import migrationRunner from "node-pg-migrate";
-import { existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import database from "infra/database";
 
